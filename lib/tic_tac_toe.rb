@@ -85,5 +85,40 @@ class TicTacToe
     return false
   end
 
-  
+  def full?
+    if @board.include?(" ")
+      return false
+    else
+      return true
+    end
+  end
+
+  def draw?
+    if full?
+      if won?
+        return false
+      else
+        return true
+      end
+    else
+      return false
+    end
+  end
+
+  def over?
+    if won? || draw? || full?
+      return true
+    else
+      return false
+    end
+  end
+
+  def winner
+    if won?
+      array = won?
+      index = array[0]
+      winner = @board[index]
+      return winner
+    end
+  end
 end
