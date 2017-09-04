@@ -69,5 +69,21 @@ class TicTacToe
       current_player = "O"
     end
   end
+
+  def won?
+    WIN_COMBINATIONS.each do |win_array|
+      if win_array.all? { |win_index| position_taken?(win_index) }
+        win_index_1 = win_array[0]
+        win_index_2 = win_array[1]
+        win_index_3 = win_array[2]
+
+        if @board[win_index_1] == @board[win_index_2] && @board[win_index_1] == @board[win_index_3]
+          return win_array
+        end
+      end
+    end
+    return false
+  end
+
   
 end
